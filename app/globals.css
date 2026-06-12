@@ -202,14 +202,13 @@ body {
 
 .lead { font-size: 0.95em; color: #d7d1e3; }
 
+/* In-flow caption line at the bottom of a slide. Kept in normal flow (NOT
+   absolutely positioned) so it can never overlap the slide's own content. */
 .footer-note {
-  position: absolute;
-  bottom: 12px;
-  left: 0;
-  right: 0;
+  margin-top: 1.1em;
   text-align: center;
-  font-size: 14px;
-  color: #5a5468;
+  font-size: 0.5em;
+  color: #6a6478;
 }
 
 /* =====================================================================
@@ -355,11 +354,177 @@ body {
 /* ---- Respect users who prefer reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   .reveal .section-title::before,
-  .kicker::after {
+  .kicker::after,
+  .login-aurora {
     animation: none;
   }
   .reveal section.present > *,
   .reveal section.present ul > li {
     animation: none !important;
   }
+}
+
+/* =====================================================================
+   CUSTOM SIGN-IN PAGE
+   ===================================================================== */
+.login-page {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #0b0b12;
+  overflow: hidden;
+}
+
+.login-aurora {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  background: linear-gradient(
+    120deg,
+    #ff5ca8,
+    #a24bff,
+    #5cc6ff,
+    #36e0c0,
+    #ffd24a
+  );
+  background-size: 320% 320%;
+  filter: blur(80px) saturate(1.2);
+  opacity: 0.42;
+  animation: auroraShift 16s ease-in-out infinite;
+}
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 34px 32px 28px;
+  border-radius: 22px;
+  background: rgba(16, 14, 22, 0.82);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  color: #ece9f1;
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.login-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffd24a;
+}
+
+.login-title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.login-sub {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #b3acc1;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9a93a8;
+}
+
+.login-input {
+  font-size: 16px;
+  font-family: inherit;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.login-input::placeholder {
+  color: #5a5468;
+}
+.login-input:focus {
+  border-color: #ff5ca8;
+  box-shadow: 0 0 0 3px rgba(255, 92, 168, 0.22);
+}
+
+.login-error {
+  font-size: 13px;
+  color: #ff9c9c;
+  background: rgba(255, 92, 92, 0.1);
+  border: 1px solid rgba(255, 92, 92, 0.3);
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.login-btn {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #16101a;
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 16px;
+  background: linear-gradient(90deg, #ff5ca8, #ff8a5c);
+  box-shadow: 0 10px 30px rgba(255, 92, 168, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(255, 92, 168, 0.4);
+}
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.login-foot {
+  margin: 6px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #6a6478;
+}
+
+/* ---- Discreet sign-out control on the deck ---- */
+.signout {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 60;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b3acc1;
+  background: rgba(16, 14, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.signout:hover {
+  color: #fff;
+  border-color: rgba(255, 92, 168, 0.6);
 }

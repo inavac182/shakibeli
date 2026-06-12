@@ -75,9 +75,22 @@ export default function Page() {
     };
   }, []);
 
+  async function signOut() {
+    try {
+      await fetch("/api/logout", { method: "POST" });
+    } catch {
+      /* ignore */
+    }
+    window.location.href = "/login";
+  }
+
   return (
-    <div className="reveal" ref={deckRef}>
-      <div className="slides">
+    <>
+      <button className="signout" onClick={signOut} type="button">
+        Sign out
+      </button>
+      <div className="reveal" ref={deckRef}>
+        <div className="slides">
         {/* ---------------- TITLE ---------------- */}
         <section
           data-background-gradient="linear-gradient(135deg,#2a0a2e 0%,#0b0b12 55%,#06223a 100%)"
@@ -979,7 +992,8 @@ export default function Page() {
             Internal team deck · password-protected · not for public sharing
           </p>
         </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

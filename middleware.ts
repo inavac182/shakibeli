@@ -1,44 +1,45 @@
 import { NextRequest, NextResponse } from "next/server";
+import { AUTH_COOKIE, authToken, creds } from "@/lib/auth";
 
 /**
- * HTTP Basic Auth gate for the whole site.
+ * Session gate for the whole site.
  *
- * Credentials come from environment variables so they are never committed:
+ * Unauthenticated visitors are redirected to the custom /login page (a real
+ * styled form, not the native browser Basic-Auth dialog). On success the login
+ * API sets an httpOnly cookie whose value matches the token computed here.
+ *
+ * Credentials come from env vars (set them in Vercel):
  *   BASIC_AUTH_USER      (default "team")
  *   BASIC_AUTH_PASSWORD  (default "shakira2026")
- *
- * Set both in the Vercel dashboard (Project → Settings → Environment Variables)
- * before sharing the URL. Everyone on the team uses the same pair.
  */
-export function middleware(req: NextRequest) {
-  const expectedUser = process.env.BASIC_AUTH_USER || "team";
-  const expectedPass = process.env.BASIC_AUTH_PASSWORD || "shakira2026";
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
 
-  const header = req.headers.get("authorization");
-
-  if (header) {
-    const [scheme, encoded] = header.split(" ");
-    if (scheme === "Basic" && encoded) {
-      // atob is available in the Edge runtime
-      const decoded = atob(encoded);
-      const sep = decoded.indexOf(":");
-      const user = decoded.slice(0, sep);
-      const pass = decoded.slice(sep + 1);
-      if (user === expectedUser && pass === expectedPass) {
-        return NextResponse.next();
-      }
-    }
+  // Always-public routes: the login page and the auth endpoints.
+  if (
+    pathname === "/login" ||
+    pathname.startsWith("/api/login") ||
+    pathname.startsWith("/api/logout")
+  ) {
+    return NextResponse.next();
   }
 
-  return new NextResponse("Authentication required.", {
-    status: 401,
-    headers: {
-      "WWW-Authenticate": 'Basic realm="Shakira vs Belinda internal", charset="UTF-8"',
-    },
-  });
+  const { user, pass } = creds();
+  const expected = await authToken(user, pass);
+  const token = req.cookies.get(AUTH_COOKIE)?.value;
+
+  if (token && token === expected) {
+    return NextResponse.next();
+  }
+
+  const url = req.nextUrl.clone();
+  url.pathname = "/login";
+  url.search = "";
+  if (pathname !== "/") url.searchParams.set("from", pathname);
+  return NextResponse.redirect(url);
 }
 
-// Protect everything except Next.js internals and the favicon.
+// Run on everything except Next internals and the favicon.
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
