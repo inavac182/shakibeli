@@ -41,6 +41,21 @@ function Img({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+/** Responsive 16:9 YouTube embed. */
+function Video({ id, title }: { id: string; title: string }) {
+  return (
+    <div className="vframe">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${id}`}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+
 export default function Page() {
   const deckRef = useRef<HTMLDivElement | null>(null);
   const revealRef = useRef<unknown>(null);
@@ -808,6 +823,141 @@ export default function Page() {
             Verdict on the trend: neither has &ldquo;declined&rdquo; — both
             adapted. Shakira leans on athletic belly-dance; Belinda leans on
             theatrical staging.
+          </p>
+        </section>
+
+        {/* COMPARISON — signature dances (video) */}
+        <section data-background-color="#0c0a12">
+          <h2>💃 Signature dances — watch them</h2>
+          <div className="vrow">
+            <div className="vcard shakira">
+              <h3 style={{ color: "#ff9ccb" }}>Shakira — &ldquo;Hips Don&apos;t Lie&rdquo;</h3>
+              <Video id="DUT5rEU6pqM" title="Shakira - Hips Don't Lie" />
+              <p className="vnote">
+                <span className="label">The move:</span> her Lebanese-rooted{" "}
+                <strong>belly-dance hip shimmy</strong> — the most recognizable
+                dance in Latin pop. Echoed in Waka Waka &amp; the 2020 Super
+                Bowl.
+              </p>
+            </div>
+            <div className="vcard belinda">
+              <h3 style={{ color: "#a8def9" }}>Belinda — &ldquo;Egoísta&rdquo; ft. Pitbull</h3>
+              <Video id="uop6kyCCqXQ" title="Belinda - Egoísta ft. Pitbull" />
+              <p className="vnote">
+                <span className="label">The move:</span> sharp, theatrical{" "}
+                <strong>pop choreography</strong> from her dance era. Her other
+                signature: the playful &ldquo;Sapito&rdquo; dance, iconic to a
+                Mexican generation.
+              </p>
+            </div>
+          </div>
+          <p className="muted" style={{ marginTop: "0.5em", fontSize: "0.6em" }}>
+            Shakira&apos;s signature is athletic &amp; cultural (belly dance);
+            Belinda&apos;s is staged pop performance. Tap a video to play.
+          </p>
+        </section>
+
+        {/* COMPARISON — top songs (video) */}
+        <section data-background-color="#0a0c14">
+          <h2>🎵 Top songs — head to head</h2>
+          <div className="vrow">
+            <div className="vcard shakira">
+              <h3 style={{ color: "#ff9ccb" }}>Shakira — &ldquo;Waka Waka&rdquo;</h3>
+              <Video id="pRpeEdMmmQ0" title="Shakira - Waka Waka (This Time for Africa)" />
+              <p className="vnote">
+                <span className="label">~4.3B views</span> — one of the
+                most-watched music videos in YouTube history &amp; a top-selling
+                World Cup song ever.
+              </p>
+            </div>
+            <div className="vcard belinda">
+              <h3 style={{ color: "#a8def9" }}>Belinda — &ldquo;Bella Traición&rdquo;</h3>
+              <Video id="HghQ2yyWMm4" title="Belinda - Bella Traición" />
+              <p className="vnote">
+                <span className="label">Her signature hit</span> — MTV VMA
+                Latinoamérica Video of the Year (2007) &amp; a Latin Grammy Song
+                of the Year nominee.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* COMPARISON — most successful by the numbers */}
+        <section data-background-color="#0b0b12">
+          <h2>🏆 Most successful songs — by the numbers</h2>
+          <table className="cmp">
+            <thead>
+              <tr>
+                <th></th>
+                <th className="s">Shakira</th>
+                <th className="b">Belinda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Most-viewed video</td>
+                <td className="s">Waka Waka — ~4.3B (top 20 ever)</td>
+                <td className="b">Hits in the tens–hundreds of millions</td>
+              </tr>
+              <tr>
+                <td>Billion-view videos</td>
+                <td className="s">Multiple (Waka Waka, Chantaje ~3B, Hips Don&apos;t Lie 1B+)</td>
+                <td className="b">None yet</td>
+              </tr>
+              <tr>
+                <td>Streaming milestone</td>
+                <td className="s">Hips Don&apos;t Lie: 1B+ Spotify streams</td>
+                <td className="b">Strong on TikTok/Spotify since 2024 pivot</td>
+              </tr>
+              <tr>
+                <td>Record-breaker</td>
+                <td className="s">BZRP 53 — 14 Guinness World Records, #9 Hot 100</td>
+                <td className="b">Cactus — viral comeback, regional-Mexican breakthrough</td>
+              </tr>
+              <tr>
+                <td>Reach</td>
+                <td className="s">Global — English + Spanish, #1 in dozens of countries</td>
+                <td className="b">Strongest in Mexico &amp; Latin America</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="lead" style={{ marginTop: "0.5em", fontSize: "0.72em" }}>
+            <strong>Verdict:</strong> by raw global numbers,{" "}
+            <span style={{ color: "#ff9ccb" }}>Shakira is in a different tier</span>{" "}
+            — several billion-view videos and a fistful of world records.
+            Belinda&apos;s success is massive but more{" "}
+            <span style={{ color: "#a8def9" }}>regional &amp; cultural</span>, and
+            she&apos;s scaling up again via regional-Mexican.
+          </p>
+        </section>
+
+        {/* COMPARISON — breakup anthems (video) */}
+        <section data-background-gradient="linear-gradient(135deg,#23091c 0%,#0b0b12 70%)">
+          <h2>🔥 Breakup anthems — head to head</h2>
+          <div className="vrow">
+            <div className="vcard shakira">
+              <h3 style={{ color: "#ff9ccb" }}>Shakira — BZRP Session #53</h3>
+              <Video id="CocEMWdc7Ck" title="Shakira - BZRP Music Sessions #53" />
+              <p className="vnote">
+                <span className="label">Post-Piqué:</span> broke{" "}
+                <strong>14 Guinness records</strong>, #1 in 16 countries — a
+                global viral juggernaut.
+              </p>
+            </div>
+            <div className="vcard belinda">
+              <h3 style={{ color: "#a8def9" }}>Belinda — &ldquo;Cactus&rdquo;</h3>
+              <Video id="uGE5BgE9hz4" title="Belinda - Cactus" />
+              <p className="vnote">
+                <span className="label">Post-Nodal:</span> referenced his erased
+                eye tattoo; <strong>relaunched her era</strong> and the
+                regional-Mexican pivot.
+              </p>
+            </div>
+          </div>
+          <p className="muted" style={{ marginTop: "0.45em", fontSize: "0.58em" }}>
+            Same playbook — turn heartbreak into a hit. Shakira&apos;s went
+            global &amp; record-breaking; Belinda&apos;s was a cultural reset at
+            home.
           </p>
         </section>
 
