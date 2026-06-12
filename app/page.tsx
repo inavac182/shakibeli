@@ -993,6 +993,92 @@ export default function Page() {
           </p>
         </section>
 
+        {/* COMPARISON — our take: bigger career */}
+        <section data-background-gradient="linear-gradient(135deg,#2a0a2e 0%,#06223a 100%)">
+          <h2>🏅 Our take: who&apos;s had the bigger career?</h2>
+          <div className="cols">
+            <div className="col-card shakira">
+              <h3 style={{ color: "#ff9ccb" }}>Shakira — bigger, clearly</h3>
+              <ul style={{ fontSize: "0.72em" }}>
+                <li>
+                  One of the <strong>best-selling Latin artists ever</strong>{" "}
+                  (~95M records), 25+ years at the top.
+                </li>
+                <li>
+                  Grammys + 15 Latin Grammys, <strong>two World Cups</strong>,
+                  Super Bowl, multiple billion-view videos.
+                </li>
+                <li>
+                  True <strong>global crossover</strong> in English &amp;
+                  Spanish — rare air.
+                </li>
+              </ul>
+            </div>
+            <div className="col-card belinda">
+              <h3 style={{ color: "#a8def9" }}>Belinda — huge, but regional</h3>
+              <ul style={{ fontSize: "0.72em" }}>
+                <li>
+                  A beloved, <strong>generation-defining Latin-American</strong>{" "}
+                  star: child actress → pop idol → TV → reinvention.
+                </li>
+                <li>
+                  Catalog reach is an order of magnitude smaller globally; power
+                  base is <strong>Mexico &amp; Latin America</strong>.
+                </li>
+                <li>
+                  Cultural footprint (memes, TV, fashion) outsizes her raw chart
+                  numbers.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* COMPARISON — can Belinda match/surpass Shakira? */}
+        <section data-background-color="#0b0b12">
+          <h2>Can Belinda&apos;s career match — or beat — Shakira&apos;s?</h2>
+          <div className="cols tight">
+            <div className="col-card belinda">
+              <h3 style={{ color: "#8fe7b8" }}>Why she has runway</h3>
+              <ul style={{ fontSize: "0.72em" }}>
+                <li>
+                  She&apos;s only <strong>~36</strong> (Shakira is ~49) — years
+                  of reinvention ahead.
+                </li>
+                <li>
+                  Riding <strong>regional Mexican</strong> — one of the
+                  fastest-growing genres on the planet right now.
+                </li>
+                <li>
+                  Real viral momentum (TikTok, <em>Cactus</em>) and a World Cup
+                  ceremony slot in 2026.
+                </li>
+              </ul>
+            </div>
+            <div className="col-card shakira">
+              <h3 style={{ color: "#ff9ccb" }}>Why it&apos;s a very high bar</h3>
+              <ul style={{ fontSize: "0.72em" }}>
+                <li>
+                  Shakira&apos;s <strong>global English crossover + World Cup
+                  ubiquity</strong> is a once-in-a-generation combo.
+                </li>
+                <li>
+                  Belinda hasn&apos;t had that worldwide breakout single{" "}
+                  <em>yet</em>.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="lead" style={{ marginTop: "0.5em", fontSize: "0.72em" }}>
+            <strong>Our verdict:</strong> Belinda can absolutely become{" "}
+            <span style={{ color: "#a8def9" }}>bigger than she&apos;s ever been</span>{" "}
+            and a defining regional-Mexican/pop icon of her generation — but
+            eclipsing Shakira&apos;s <em>all-time global</em> scale is unlikely on
+            the current trajectory. Never say never if a crossover smash + a
+            global moment land together. 🎯
+          </p>
+        </section>
+
         {/* ================= VERDICT: BODY DOUBLE ================= */}
         <section
           className="section-title"
