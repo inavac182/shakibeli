@@ -1,0 +1,365 @@
+/* ---- Base ---- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b0b12;
+  height: 100%;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---- Custom reveal.js theme ---- */
+.reveal {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #ece9f1;
+  font-size: 30px;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  line-height: 1.1;
+  margin: 0 0 0.5em 0;
+  color: #fff;
+}
+
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.15em; }
+
+.reveal p,
+.reveal li {
+  line-height: 1.4;
+}
+
+.reveal a {
+  color: #ff5ca8;
+  text-decoration: none;
+}
+.reveal a:hover {
+  text-decoration: underline;
+}
+
+.reveal strong {
+  color: #ffd24a;
+  font-weight: 700;
+}
+
+.reveal ul {
+  display: block;
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin: 0.35em 0;
+}
+
+/* ---- Accent colors per artist ---- */
+.shakira strong { color: #ff5ca8; }
+.belinda strong { color: #5cc6ff; }
+
+/* ---- Section divider slides ---- */
+.section-title h1 {
+  font-size: 3em;
+}
+.kicker {
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffd24a;
+  margin-bottom: 0.6em;
+}
+
+/* ---- Two column layout ---- */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2em;
+  align-items: start;
+}
+.cols.tight { gap: 0.8em; }
+
+.col-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 0.8em 1em;
+}
+.col-card.shakira { border-top: 4px solid #ff5ca8; }
+.col-card.belinda { border-top: 4px solid #5cc6ff; }
+.col-card h3 { margin-top: 0; }
+
+/* ---- Media ---- */
+.media-row {
+  display: flex;
+  gap: 0.8em;
+  align-items: stretch;
+}
+.media-row .text { flex: 1; }
+.media-row .pic { flex: 0 0 38%; }
+
+.pic img,
+.frame img {
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.caption {
+  font-size: 0.5em;
+  color: #9a93a8;
+  margin-top: 0.5em;
+}
+
+/* image gallery strip */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6em;
+}
+.gallery figure {
+  margin: 0;
+}
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+}
+.gallery figcaption {
+  font-size: 0.42em;
+  color: #b9b2c6;
+  margin-top: 0.35em;
+  text-align: center;
+}
+
+/* ---- Pills / tags ---- */
+.pill {
+  display: inline-block;
+  font-size: 0.55em;
+  padding: 0.15em 0.7em;
+  border-radius: 999px;
+  background: rgba(255, 92, 168, 0.16);
+  color: #ff9ccb;
+  margin: 0.15em 0.2em 0.15em 0;
+}
+.pill.b { background: rgba(92, 198, 255, 0.16); color: #a8def9; }
+
+/* ---- Comparison table ---- */
+.cmp {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.62em;
+}
+.cmp th,
+.cmp td {
+  padding: 0.55em 0.7em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+.cmp thead th {
+  font-size: 1em;
+  color: #ffd24a;
+  border-bottom: 2px solid rgba(255, 210, 74, 0.4);
+}
+.cmp td:first-child {
+  color: #9a93a8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cmp .s { color: #ff9ccb; }
+.cmp .b { color: #a8def9; }
+
+/* quote */
+.reveal blockquote {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 4px solid #ffd24a;
+  border-radius: 0 12px 12px 0;
+  padding: 0.7em 1em;
+  font-style: italic;
+  font-size: 0.8em;
+  box-shadow: none;
+}
+
+.muted { color: #9a93a8; font-size: 0.7em; }
+
+.lead { font-size: 0.95em; color: #d7d1e3; }
+
+.footer-note {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #5a5468;
+}
+
+/* =====================================================================
+   FRESH / YOUNG / ANIMATED LAYER
+   ===================================================================== */
+
+/* ---- Moving "aurora" behind the big divider slides ---- */
+.reveal .section-title::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    #ff5ca8,
+    #a24bff,
+    #5cc6ff,
+    #36e0c0,
+    #ffd24a
+  );
+  background-size: 320% 320%;
+  filter: blur(46px) saturate(1.25);
+  opacity: 0.5;
+  border-radius: 28px;
+  animation: auroraShift 16s ease-in-out infinite;
+}
+
+@keyframes auroraShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---- Animated accent bar under the kicker ---- */
+.kicker {
+  position: relative;
+}
+.kicker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ff5ca8, #5cc6ff, #36e0c0);
+  background-size: 200% 100%;
+  animation: auroraShift 6s linear infinite;
+}
+
+/* ---- Glow on headings ---- */
+.reveal .section-title h1 {
+  text-shadow: 0 0 38px rgba(255, 92, 168, 0.35);
+}
+
+/* ---- Entrance animations: replay every time a slide becomes active ---- */
+.reveal section.present > h1,
+.reveal section.present > h2,
+.reveal section.present > .kicker,
+.reveal section.present > p,
+.reveal section.present > blockquote,
+.reveal section.present > .cols,
+.reveal section.present > table,
+.reveal section.present > .media-row,
+.reveal section.present > .gallery,
+.reveal section.present > ul {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* stagger the major blocks */
+.reveal section.present > h2 { animation-delay: 0.02s; }
+.reveal section.present > .kicker { animation-delay: 0s; }
+.reveal section.present > .cols,
+.reveal section.present > .media-row,
+.reveal section.present > table,
+.reveal section.present > .gallery { animation-delay: 0.14s; }
+.reveal section.present > p,
+.reveal section.present > blockquote { animation-delay: 0.24s; }
+
+/* stagger list items individually */
+.reveal section.present ul > li {
+  animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.reveal section.present ul > li:nth-child(1) { animation-delay: 0.16s; }
+.reveal section.present ul > li:nth-child(2) { animation-delay: 0.26s; }
+.reveal section.present ul > li:nth-child(3) { animation-delay: 0.36s; }
+.reveal section.present ul > li:nth-child(4) { animation-delay: 0.46s; }
+.reveal section.present ul > li:nth-child(5) { animation-delay: 0.56s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Cards: lift + glow on hover, animated top border ---- */
+.col-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.col-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+.col-card.shakira:hover {
+  border-color: rgba(255, 92, 168, 0.6);
+  box-shadow: 0 18px 50px rgba(255, 92, 168, 0.18);
+}
+.col-card.belinda:hover {
+  border-color: rgba(92, 198, 255, 0.6);
+  box-shadow: 0 18px 50px rgba(92, 198, 255, 0.18);
+}
+
+/* ---- Images: subtle zoom on hover ---- */
+.pic img,
+.frame img,
+.gallery img {
+  transition: transform 0.4s ease;
+}
+.pic:hover img,
+.frame:hover img,
+.gallery figure:hover img {
+  transform: scale(1.03);
+}
+
+/* ---- Brighter, on-brand reveal progress bar + controls ---- */
+.reveal .progress {
+  color: #ff5ca8;
+  height: 4px;
+}
+.reveal .progress span {
+  background: linear-gradient(90deg, #ff5ca8, #5cc6ff, #36e0c0);
+}
+.reveal .controls {
+  color: #ff5ca8;
+}
+
+/* ---- Respect users who prefer reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal .section-title::before,
+  .kicker::after {
+    animation: none;
+  }
+  .reveal section.present > *,
+  .reveal section.present ul > li {
+    animation: none !important;
+  }
+}
